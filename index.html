@@ -46,15 +46,15 @@
       line-height:1.6;
       -webkit-font-smoothing:antialiased;
       -moz-osx-font-smoothing:grayscale;
-      padding:24px;
+      padding: clamp(12px, 3vw, 24px);
     }
 
     .resume{
       max-width:var(--maxw);
       margin:0 auto;
       display:grid;
-      grid-template-columns: 340px 1fr;
-      gap:28px;
+      grid-template-columns: minmax(300px, 340px) 1fr;
+      gap:clamp(20px, 3vw, 28px);
       align-items:start;
     }
 
@@ -75,7 +75,7 @@
 
     .profile-header{
       background:linear-gradient(135deg, var(--pink-500), var(--pink-300));
-      padding:28px 24px 100px;
+      padding:clamp(20px, 4vw, 28px) clamp(16px, 3vw, 24px) clamp(80px, 12vw, 100px);
       color:white;
       position:relative;
       overflow:hidden;
@@ -92,15 +92,15 @@
 
     .avatar-wrap{
       position:absolute;
-      bottom:-56px;
-      left:24px;
+      bottom:-48px;
+      left:clamp(16px, 3vw, 24px);
       display:flex;
       align-items:flex-end;
-      gap:14px;
+      gap:clamp(10px, 2vw, 14px);
     }
     .avatar{
-      width:112px; height:112px;
-      border-radius:20px;
+      width:clamp(88px, 12vw, 112px); height:clamp(88px, 12vw, 112px);
+      border-radius:clamp(16px, 2vw, 20px);
       overflow:hidden;
       border:4px solid white;
       box-shadow:var(--shadow-soft);
@@ -109,7 +109,7 @@
     .avatar img{width:100%; height:100%; object-fit:cover; display:block;}
 
     .name-role{
-      margin-left:150px;
+      margin-left:clamp(120px, 16vw, 150px);
       padding-bottom:12px;
     }
     h1{
@@ -122,10 +122,11 @@
       margin:0;
       font-weight:600;
       opacity:.95;
+      font-size: 14px;
     }
 
     .left-body{
-      padding:84px 24px 24px;
+      padding:64px 20px 20px;
       display:grid;
       gap:22px;
     }
@@ -146,18 +147,18 @@
 
     .contact-item{
       display:grid; grid-template-columns:26px 1fr; align-items:start; gap:10px;
-      padding:10px 12px; border:1px solid var(--pink-100); border-radius:10px; background:#fff;
+      padding:8px 10px; border:1px solid var(--pink-100); border-radius:10px; background:#fff;
     }
     .contact-ico{font-size:18px; line-height:1}
 
     .pill{
       display:inline-block;
-      padding:6px 12px;
+      padding:4px 10px;
       border-radius:999px;
       background:var(--pink-100);
       color:var(--pink-700);
       font-weight:600;
-      font-size:12px;
+      font-size:11px;
       margin:6px 6px 0 0;
       border:1px solid var(--pink-200);
     }
@@ -174,7 +175,7 @@
     }
 
     .block{
-      padding:22px 24px;
+      padding:16px;
       border:1px solid var(--pink-100);
       border-radius:var(--radius-md);
       background:rgba(255,255,255,0.9);
@@ -192,7 +193,7 @@
     .timeline{
       position:relative;
       margin-left:6px;
-      padding-left:18px;
+      padding-left:14px;
     }
     .timeline::before{
       content:""; position:absolute; left:6px; top:4px; bottom:4px; width:2px; background:linear-gradient(180deg,var(--pink-300),var(--pink-600));
@@ -224,18 +225,57 @@
       body{background:white; padding:0}
       .card{box-shadow:none}
       .left{position:static}
+      .resume {
+        gap: 20px;
+      }
+      
+      .block {
+        break-inside: avoid;
+      }
     }
 
     /* Responsive */
     @media (max-width: 900px){
       .resume{grid-template-columns:1fr}
       .left{position:static}
-      .name-role{margin-left:140px}
+      .profile-header {
+        padding-bottom: 80px;
+      }
+      
+      .left-body {
+        padding: 64px 20px 20px;
+      }
     }
     @media (max-width: 520px){
-      .avatar{width:96px;height:96px}
-      .name-role{margin-left:124px}
-      h1{font-size:24px}
+      body {
+        padding: 12px;
+      }
+      
+      h1 {
+        font-size: clamp(20px, 5vw, 24px);
+      }
+      
+      .role {
+        font-size: 14px;
+      }
+      
+      .block {
+        padding: 16px;
+      }
+      
+      .contact-item {
+        padding: 8px 10px;
+      }
+      
+      .pill {
+        padding: 4px 10px;
+        font-size: 11px;
+      }
+      
+      .timeline {
+        margin-left: 4px;
+        padding-left: 14px;
+      }
     }
   </style>
 </head>
